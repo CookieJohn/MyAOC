@@ -1,18 +1,20 @@
 (ns AOC2022.Day1
   (:require
-   [AOC2022.questions.Day1 :refer [question]]
+   [AOC2022.helper :as helper]
    [clojure.string :as cs]))
 
-(defn call-1 [q]
-  (->> (cs/split q #"\n\n")
+(def input (helper/read-file 1))
+
+(defn ans-1 [data]
+  (->> (cs/split data #"\n\n")
        (mapv (fn [n] 
                (->> (cs/split n #"\n")
                     (mapv #(Integer/parseInt %))
                     (reduce +))))
        (apply max)))
 
-(defn call-2 [q]
-  (->> (cs/split q #"\n\n")
+(defn ans-2 [data]
+  (->> (cs/split data #"\n\n")
        (mapv (fn [n] 
                (->> (cs/split n #"\n")
                     (mapv #(Integer/parseInt %))
@@ -21,6 +23,9 @@
        (take-last 3)
        (apply +)))
 
+(prn (ans-1 input))
+(prn (ans-2 input))
+
 (comment
-  (call-1 question)
-  (call-2 question))
+  (ans-1 input)
+  (ans-2 input))

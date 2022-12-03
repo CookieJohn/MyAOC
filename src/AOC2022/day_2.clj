@@ -1,6 +1,6 @@
 (ns AOC2022.Day2
   (:require
-   [AOC2022.questions.Day2 :refer [question]]
+   [AOC2022.helper :as helper]
    [clojure.string :as cs]))
 
 ;; A for Rock, B for Paper, and C for Scissors
@@ -17,8 +17,10 @@
                       "CA" 0 
                       "CB" 6})
 
-(defn call-1 [q]
-  (->> (cs/split q #"\n")
+(def input (helper/read-file 2))
+
+(defn ans-1 [data]
+  (->> (cs/split data #"\n")
        (mapv #(cs/split % #" "))
        (mapv (fn [[a b]]
                (let [reverse-map    (transform-map b)
@@ -37,8 +39,8 @@
                         "CZ" "A"})
 
 ;; X means you need to lose, Y means you need to end the round in a draw, and Z means you need to win
-(defn call-2 [q]
-  (->> (cs/split q #"\n")
+(defn ans-2 [data]
+  (->> (cs/split data #"\n")
        (mapv #(cs/split % #" "))
        (mapv (fn [[a b]]
                (let [win-lose-score (score-map-2 b)
@@ -47,8 +49,9 @@
                  (+ score win-lose-score))))
        (apply +)))
 
+(prn (ans-1 input))
+(prn (ans-2 input))
+
 (comment
-  (prn question)
-  (score-map "X")
-  (call-1 question) ; 12586
-  (call-2 question)) ; 13193
+  (ans-1 input)  ; 12586
+  (ans-2 input)) ; 13193

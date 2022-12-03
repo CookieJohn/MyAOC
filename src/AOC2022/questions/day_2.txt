@@ -1,7 +1,4 @@
-(ns AOC2022.questions.Day2)
-
-(def question 
- "C Z
+C Z
 A Y
 C Z
 A Y
@@ -2500,4 +2497,4 @@ C Y
 B X
 C X
 A X
-A Z")
+A Z
