@@ -1,4 +1,4 @@
-(ns AOC2022.DayTemplate
+(ns AOC2022.answers.DayTemplate
   (:require
    [AOC2022.helper :as helper]
    [clojure.string :as cs]))
