@@ -1,9 +1,9 @@
 (ns AOC2022.answers.DayTemplate
   (:require
-   [AOC2022.helper :as helper]
+   [AOC2022.helper :refer [read-file str->int]]
    [clojure.string :as cs]))
 
-(def input (helper/read-file 1))
+(def input (read-file 1))
 
 (defn ans-1 [data]
   (->> (cs/split data #"\n")))
