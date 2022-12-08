@@ -12,7 +12,7 @@
   (->> (cs/split data #"\n")))
 
 (prn (ans-1 input))
-(prn (ans-2 input))
+;; (prn (ans-2 input))
 
 (comment
   (ans-1 input)
